@@ -60,7 +60,7 @@ public class Logger {
 			PrintWriter writer = new PrintWriter(fos);
 			// 写入文件内容
 			line = String.format("%s - %s", timeFormat.format(now), line);
-			writer.write(line);
+			writer.println(line);
 			writer.close();
 		} catch(Exception e) {}
 	}
