@@ -19,6 +19,7 @@ import cn._2dland.tools.uploader.IUploadHandler;
 import cn._2dland.tools.uploader.TagDB;
 import cn._2dland.tools.uploader.TitleDB;
 import cn._2dland.tools.uploader.UploadClient;
+import cn._2dland.tools.uploader.exception.HttpException;
 import cn._2dland.tools.uploader.util.FileUtils;
 
 public class SinaClient extends UploadClient {
@@ -202,7 +203,7 @@ public class SinaClient extends UploadClient {
 		if(handler != null) handler.onUploadBegin(this, file.getName());
 		int respCode = client.executeMethod(request);
 		if(handler != null) handler.onUploadEnd(this, file.getName());
-		if(respCode != HttpStatus.SC_OK) throw new Exception();
+		if(respCode != HttpStatus.SC_OK) throw new HttpException(respCode);
 
 		// 上传完成，返回上传结果
 		String uploadFileName = url.substring(url.indexOf("file_name=") + 10);
