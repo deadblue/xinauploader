@@ -50,7 +50,7 @@ public class TagDB {
 	 */
 	public static String getRandomTags(String separator) {
 		// 预置tag
-		StringBuffer buf = new StringBuffer("2dland");
+		StringBuffer buf = new StringBuffer("xuv2");
 		// 产生2~3个tag
 		int count = random.nextInt(2) + 2;
 		count = Math.min(count, tags.size());
